@@ -5,15 +5,25 @@ on:
     branches:
       - main
       - develop
+      - contract
+      - frontend
     paths:
       - "contract/**"
+      # Root rustfmt.toml governs formatting for the contract workspace too, so
+      # a change there must re-run fmt/clippy (see workflow-matrix.json).
+      - "rustfmt.toml"
       - ".github/workflows/contract-ci.yml"
   pull_request:
     branches:
       - main
       - develop
+      - contract
+      - frontend
     paths:
       - "contract/**"
+      # Root rustfmt.toml governs formatting for the contract workspace too, so
+      # a change there must re-run fmt/clippy (see workflow-matrix.json).
+      - "rustfmt.toml"
       - ".github/workflows/contract-ci.yml"
   workflow_dispatch:
 

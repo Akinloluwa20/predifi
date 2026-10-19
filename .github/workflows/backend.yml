@@ -4,18 +4,34 @@ on:
   push:
     branches:
       - main
+      - develop
       - contract
+      - frontend
     paths:
       - "contract/**"
       - "backend/**"
+      # Shared boundaries (see .github/ci/workflow-matrix.json):
+      # - compose builds the backend dev image and bind-mounts contract/ for the
+      #   predifi-errors path dependency;
+      # - root rustfmt.toml is picked up by rustfmt for backend/ too.
+      - "docker-compose.yml"
+      - "rustfmt.toml"
       - ".github/workflows/backend.yml"
   pull_request:
     branches:
       - main
+      - develop
       - contract
+      - frontend
     paths:
       - "contract/**"
       - "backend/**"
+      # Shared boundaries (see .github/ci/workflow-matrix.json):
+      # - compose builds the backend dev image and bind-mounts contract/ for the
+      #   predifi-errors path dependency;
+      # - root rustfmt.toml is picked up by rustfmt for backend/ too.
+      - "docker-compose.yml"
+      - "rustfmt.toml"
       - ".github/workflows/backend.yml"
   workflow_dispatch:
 

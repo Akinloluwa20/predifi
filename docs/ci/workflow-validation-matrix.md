@@ -7,6 +7,8 @@ which omits a shared input silently skips a required check. This document and
 `.github/workflows/workflow-validation.yml` verifies them on every change to the
 trigger configuration or a shared boundary.
 
+Tracking issue: [#136 — [CI] Test path filters against cross-component changes](https://github.com/Onipinsaiye/predifi/issues/136).
+
 ## Components and shared boundaries
 
 | Boundary | Shared paths | Dependent checks | Why |
